@@ -45,6 +45,16 @@ FROM SALESMAN
 WHERE NOT CITY=ANY(SELECT CITY FROM CUSTOMER)
 ORDER BY 1 DESC;
 
+CREATE VIEW  Highest_Salesman AS
+SELECT Name, Purchase_Amt
+FROM  Salesman S, Orders O
+WHERE S.Salesman_Id = O.Salesman_Id AND Purchase_Amt IN (SELECT max(Purchase_Amt)
+                                                         FROM Salesman S, Orders O
+                                                         WHERE S.Salesman_Id = O.Salesman_Id);
+
+SELECT * FROM Highest_Salesman1;
+
+
 DELETE FROM SALESMAN
 WHERE SALESMAN_ID=1111;
 
