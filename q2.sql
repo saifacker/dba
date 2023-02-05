@@ -52,7 +52,7 @@ WHERE S.Salesman_Id = O.Salesman_Id AND Purchase_Amt IN (SELECT max(Purchase_Amt
                                                          FROM Salesman S, Orders O
                                                          WHERE S.Salesman_Id = O.Salesman_Id);
 
-SELECT * FROM Highest_Salesman1;
+SELECT * FROM Highest_Salesman;
 
 
 DELETE FROM SALESMAN
